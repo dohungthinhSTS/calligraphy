@@ -10,7 +10,7 @@ module Calligraphy
       include Calligraphy::Rails::WebDavMethods
       include Calligraphy::Rails::WebDavPreconditions
 
-      before_action :verify_resource_scope
+#       before_action :verify_resource_scope
       before_action :authenticate_with_digest_authentiation
       before_action :set_resource
 
