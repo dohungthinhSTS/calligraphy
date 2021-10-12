@@ -5,7 +5,6 @@ module Calligraphy
     # Controller for all WebDAV requests.
     class WebDavRequestsController < ActionController::Base
       protect_from_forgery with: :null_session
-      skip_before_action :verify_authenticity_token
 
       include Calligraphy::Rails::WebDavMethods
       include Calligraphy::Rails::WebDavPreconditions
@@ -13,6 +12,8 @@ module Calligraphy
 #       before_action :verify_resource_scope
       before_action :authenticate_with_digest_authentiation
       before_action :set_resource
+      skip_before_action :verify_authenticity_token
+
 
       # Entry-point for all WebDAV requests. Handles checking and validating
       # preconditions, directing of requests to the proper WebDAV action
