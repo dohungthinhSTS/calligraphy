@@ -21,6 +21,7 @@ module Calligraphy
       @src_path = join_paths @root_dir, @request_path
 
       if exists?
+        puts "***********File Exists?************"
         @name = File.basename @src_path
         init_pstore
         set_file_stats
@@ -259,7 +260,7 @@ module Calligraphy
 
     def set_file_stats
       file_stats = File.stat @src_path
-
+      puts "********Set File Stats*********"
       @stats = {
         created_at: file_stats.ctime,
         inode: file_stats.ino,
@@ -575,6 +576,8 @@ module Calligraphy
     end
 
     def getcontentlength(prop)
+      puts "*********GetContentLength: @stats***************"
+      puts "*******@stats: #{@starts}"
       prop.content = @stats[:size]
       prop
     end
